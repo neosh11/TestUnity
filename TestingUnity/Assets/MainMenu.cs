@@ -8,6 +8,7 @@ public class MainMenu : MonoBehaviour
 
     void Start()
     {
+        SavingService.SaveGame("HelloDarkness1");
         CursorControls.ConfineCursor();
     }
     public void onO1()

@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.IO;
+
+
 
 public class EscapeMenu : MonoBehaviour
 {
@@ -14,6 +17,13 @@ public class EscapeMenu : MonoBehaviour
     public void OnResetCamera()
     {
         Debug.Log("Not yet done");
+
+        // Check if file exists
+
+        var loadPath = Path.Combine(Application.persistentDataPath, "HelloDarkness1");
+        if (File.Exists(loadPath)) SavingService.LoadGame("HelloDarkness1");
+        else SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+
         Close();
     }
 
@@ -21,12 +31,14 @@ public class EscapeMenu : MonoBehaviour
     public void OnSave()
     {
         Debug.Log("Not yet done");
+        SavingService.SaveGame("HelloDarkness1");
+
         Close();
     }
 
     public void OnReturnToMenu()
     {
-
+        SceneManager.UnloadSceneAsync("O1");
         SceneManager.LoadScene("MainMenu");
 
         Close();
