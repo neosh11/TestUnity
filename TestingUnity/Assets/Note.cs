@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Note : MonoBehaviour
 {
-    public Vector3 position;
-    public string text;
+    private Vector3 position;
+    private string text;
 
     public void SetText(string text)
     {

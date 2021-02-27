@@ -19,7 +19,7 @@ public class CreateNotePopUp : MonoBehaviour
 
     public void OnSubmit()
     {
-        // Display
+        // Display object for the tag
         GameObject note = Instantiate(notePrefab) as GameObject;
         note.transform.position = position;
         // BG data

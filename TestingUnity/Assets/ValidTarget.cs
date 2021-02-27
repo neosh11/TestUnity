@@ -11,16 +11,6 @@ public class ValidTarget : MonoBehaviour
     }
     public TypeOfObject type = TypeOfObject.Base;
     // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
 
     public void ReactToHit(Vector3 location)
     {
@@ -33,14 +23,17 @@ public class ValidTarget : MonoBehaviour
         if (type == TypeOfObject.Note)
         {
             // Display note information
-            Debug.Log("Note " + this.transform.gameObject.GetComponent<Note>().GetText());
-
+            DisplayNote(this.transform.gameObject.GetComponent<Note>());
         }
     }
 
     private void CreateNote(Vector3 pos)
     {
         Messenger<Vector3>.Broadcast(GameEvent.NOTE_CREATE, pos);
+    }
 
+    private void DisplayNote(Note note)
+    {
+        Messenger<Note>.Broadcast(GameEvent.DISPLAY_NOTE, note);
     }
 }
