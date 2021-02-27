@@ -20,9 +20,10 @@ public class KeyboardInput : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Cursor.lockState != CursorLockMode.Locked) return;
         float deltaX = Input.GetAxis("Horizontal") * speed * Time.deltaTime;
         float deltaZ = Input.GetAxis("Vertical") * speed * Time.deltaTime;
         float deltaY = Input.GetAxis("UpDown") * speed * Time.deltaTime;
-        transform.Translate(deltaX , deltaY, deltaZ);
+        transform.Translate(deltaX, deltaY, deltaZ);
     }
 }

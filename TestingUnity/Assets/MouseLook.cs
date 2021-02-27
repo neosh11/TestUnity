@@ -24,6 +24,7 @@ public class MouseLook : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(Cursor.lockState != CursorLockMode.Locked) return;
 
         // GetAxis is rate independent
         // Calc and clamp vertical rotation 
