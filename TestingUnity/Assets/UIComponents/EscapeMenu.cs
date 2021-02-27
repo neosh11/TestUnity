@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class EscapeMenu : MonoBehaviour
 {
@@ -25,7 +26,9 @@ public class EscapeMenu : MonoBehaviour
 
     public void OnReturnToMenu()
     {
-        Debug.Log("Not yet done");
+
+        SceneManager.LoadScene("MainMenu");
+
         Close();
     }
 

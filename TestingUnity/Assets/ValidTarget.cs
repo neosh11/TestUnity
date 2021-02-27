@@ -14,7 +14,6 @@ public class ValidTarget : MonoBehaviour
 
     public void ReactToHit(Vector3 location)
     {
-
         // Add note here
         if (type == TypeOfObject.Base)
         {
@@ -27,6 +26,15 @@ public class ValidTarget : MonoBehaviour
         }
     }
 
+    public void ReactToAlernateHit()
+    {
+        if (type == TypeOfObject.Note)
+        {
+            // Ask User if they want to delete the Note
+            DestroyNote(this.transform.gameObject.GetComponent<Note>());
+        }
+    }
+
     private void CreateNote(Vector3 pos)
     {
         Messenger<Vector3>.Broadcast(GameEvent.NOTE_CREATE, pos);
@@ -35,5 +43,10 @@ public class ValidTarget : MonoBehaviour
     private void DisplayNote(Note note)
     {
         Messenger<Note>.Broadcast(GameEvent.DISPLAY_NOTE, note);
+    }
+
+        private void DestroyNote(Note note)
+    {
+        Messenger<Note>.Broadcast(GameEvent.DESTROY_NOTE, note);
     }
 }

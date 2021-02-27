@@ -16,7 +16,6 @@ public class DisplayNotePopUp : MonoBehaviour
 
     public void OnEdit()
     {
-        Debug.Log("HEEL");
         // Close current popup and open edit pop up
         noteText.text = "";
         Close();
