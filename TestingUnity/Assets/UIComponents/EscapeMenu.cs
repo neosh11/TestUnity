@@ -21,9 +21,17 @@ public class EscapeMenu : MonoBehaviour
         // Check if file exists
 
         var loadPath = Path.Combine(Application.persistentDataPath, "HelloDarkness1");
-        if (File.Exists(loadPath)) SavingService.LoadGame("HelloDarkness1");
-        else SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        if (File.Exists(loadPath))
+        {
+            Debug.Log("Attempting to load");
+            SavingService.LoadGame("HelloDarkness1");
 
+        }
+        else
+        {
+            Debug.Log("No load found");
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
         Close();
     }
 

@@ -71,6 +71,20 @@ public class NoteManger : MonoBehaviour
             notesObj = new List<GameObject>();
             notes = new List<Note>();
         }
+        else if (notesObj.Count > 0 && !notesObj[0].scene.IsValid())
+        {
+            Debug.Log("Removing all Items");
+            {
+                // If gameobject does not exist
+                notesObj.ForEach(delegate (GameObject g)
+                {
+                    Destroy(g);
+                });
+                notesObj = new List<GameObject>();
+                notes = new List<Note>();
+
+            }
+        }
 
     }
 
