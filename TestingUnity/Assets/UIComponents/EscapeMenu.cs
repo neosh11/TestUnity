@@ -46,7 +46,6 @@ public class EscapeMenu : MonoBehaviour
 
     public void OnReturnToMenu()
     {
-        SceneManager.UnloadSceneAsync("O1");
         SceneManager.LoadScene("MainMenu");
 
         Close();

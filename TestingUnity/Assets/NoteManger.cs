@@ -62,6 +62,7 @@ public class NoteManger : MonoBehaviour
 
     void Start()
     {
+        Debug.Log("jelly");
         // Init prefab
         notePrefab = (GameObject)Resources.Load("Note");
         // Initialize list
@@ -71,7 +72,7 @@ public class NoteManger : MonoBehaviour
             notesObj = new List<GameObject>();
             notes = new List<Note>();
         }
-        else if (notesObj.Count > 0 && !notesObj[0].scene.IsValid())
+        else if (notesObj.Count > 0 && (notesObj[0] == null || !notesObj[0].scene.IsValid()))
         {
             Debug.Log("Removing all Items");
             {
@@ -85,7 +86,6 @@ public class NoteManger : MonoBehaviour
 
             }
         }
-
     }
 
     // Update is called once per frame
